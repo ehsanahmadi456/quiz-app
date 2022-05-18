@@ -10,7 +10,7 @@
 }
 
 .card {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.4);
   width: 500px;
   position: absolute;
   min-height: 450px;
@@ -22,6 +22,7 @@
 }
 
 .animationCard {
+  position: relative;
   background-color: #fff;
   width: 40%;
   margin: 150px 0;
@@ -58,6 +59,52 @@
   padding: 20px 20px;
   align-items: center;
   height: 190px;
+  position: relative;
+}
+
+.icon1 {
+  position: absolute;
+  top: -43%;
+  right: 88%;
+}
+
+.icon2 {
+  position: absolute;
+  top: 75%;
+  right: 5%;
+  animation: 1.5s icon2 infinite;
+}
+
+@keyframes icon2 {
+  0% {
+    transform: rotate(5deg);
+  }
+  30% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.icon3 {
+  position: absolute;
+  top: 122%;
+  right: 72%;
+  transform: rotate(15deg);
+  animation: 1.5s icon3 infinite;
+}
+
+@keyframes icon3 {
+  0% {
+    top: 122%;
+  }
+  50% {
+    top: 125%;
+  }
+  100% {
+    top: 122%;
+  }
 }
 
 .text {

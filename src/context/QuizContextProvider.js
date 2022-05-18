@@ -1,9 +1,10 @@
-import React, { useState, createContext, Children } from 'react';
+import React, { useState, createContext } from 'react';
 
 export const QuizContext = createContext();
 
 const QuizContextProvider = ({children}) => {
 
+    const [score, setScore] = useState(0);
     const [question, setQuestion] = useState([
         {
             qs: "A: Which of this is not a programming language?",
@@ -35,12 +36,12 @@ const QuizContextProvider = ({children}) => {
             option2: "C",
             option3: "Java",
             option4: "Python",
-            answer: "option4",
+            answer: "option1",
         }
     ]);
 
     return (
-        <QuizContext.Provider value={question}>
+        <QuizContext.Provider value={{question, score, setScore}}>
             {children}
         </QuizContext.Provider>
     );

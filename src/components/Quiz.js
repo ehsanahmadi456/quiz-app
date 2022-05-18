@@ -9,11 +9,11 @@ import { QuizContext } from '../context/QuizContextProvider';
 
 const Quiz = () => {
     
-    const question = useContext(QuizContext);
+    const {question, score, setScore} = useContext(QuizContext);
     const [complete, setComplete] = useState(true);
     const [number, setNumber] = useState(0);
     const [answerUser, setAnswerUser] = useState("");
-    const [score, setScore] = useState(0);
+    const [animate, setAnimate] = useState(false);
     const exam = question[number];
     const navigate = useNavigate();
 
@@ -31,22 +31,25 @@ const Quiz = () => {
 
     const scoreHandler = () => {
         if (answerUser === exam.answer) {
+            console.log("TRUE");
             setScore(score+1)
-            console.log(score);
-        }
-        else {
-            setScore(score-1)
-            console.log(score);
         }
     }
 
     const finishHandler = () => {
-        navigate("/result")
+        if (answerUser === exam.answer) {
+            console.log("TRUE");
+            setScore(score+1)
+        }
+        setTimeout(() => {
+            navigate("/result");
+        }, 900);
+        setAnimate(true);
     }
 
     return (
         <div className={styles.container}>
-            <div className={styles.card}>
+            <div className={animate ? styles.animationCard : styles.card}>
                 <p className={styles.headCard}>Quiz</p>
                 <div className={styles.mainCard} style={{display: "flex", flexDirection: "column"}}>
                     <p className={styles.question}>{exam.qs}</p>
@@ -62,7 +65,6 @@ const Quiz = () => {
                     </div>
                 </div>
                 <div className={styles.buttons}>
-                    <button className={complete ? styles.unCompletedButton : styles.preButton} onClick={previousHandler}>Previous</button>
                     {
                         number === 3 ? <button className={styles.nextButton} onClick={finishHandler}>Finish</button> :
                         <button className={styles.nextButton} onClick={nextHandler}>Next</button>

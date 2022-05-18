@@ -1,109 +1,162 @@
 :root {
-    --ColorText: #f45f3f;
+  --ColorText: #f45f3f;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.card {
+  background-color: rgba(255,255,255,.4);
+  width: 500px;
+  position: absolute;
+  min-height: 450px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px rgb(224, 224, 224);
+  transition: 0.3s;
+  animation: show 1s;
+}
+
+@keyframes show {
+  from {
+    left: 120%;
+    opacity: 0;
   }
-  
-  .container {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    max-width: 1200px;
+  to {
+    left: 50%;
+    opacity: 1;
   }
-  
+}
+
+.animationCard {
+  background-color: #fff;
+  width: 40%;
+  margin: 150px 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px rgb(224, 224, 224);
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  form {
+    left: 50%;
+    opacity: 1;
+  }
+  to {
+    left: -20%;
+    opacity: 0;
+  }
+}
+
+.headCard {
+  color: var(--ColorText);
+  font-weight: 400;
+  padding: 40px 0;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.mainCard {
+  display: flex;
+  flex-direction: column;
+  height: 233px;
+}
+
+.mainCard .score {
+  display: flex;
+  margin: 10px 40px;
+  position: relative;
+}
+
+.mainCard .score span {
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #333;
+}
+
+.mainCard .score p {
+  padding: 13px;
+  border-radius: 50%;
+  background-color: var(--ColorText);
+  position: absolute;
+  top: 82%;
+  right: 11%;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.mainCard .play {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 95px 60px 0 50px;
+}
+
+.mainCard .play span {
+  font-weight: 600;
+  color: #333;
+}
+
+.mainCard button {
+  all: unset;
+  border: 1px solid var(--ColorText);
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: var(--ColorText);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mainCard button:hover {
+  background: #ffe2db;
+  color: #f04823;
+}
+
+.buttonSubmit {
+  all: unset;
+  border: 1px solid var(--ColorText);
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: var(--ColorText);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buttonSubmit:hover {
+  background: #ffe2db;
+  color: #f04823;
+}
+
+.footerCard {
+  color: var(--ColorText);
+  font-weight: 400;
+  padding: 40px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
   .card {
-    background-color: #fff;
-    width: 500px;
-    position: absolute;
-    min-height: 450px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 30px;
-    box-shadow: 5px 5px 10px rgb(224, 224, 224);
-    transition: 0.3s;
+    width: 50%;
   }
-  
-  .animationCard {
-    background-color: #fff;
-    width: 40%;
-    margin: 150px 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 30px;
-    box-shadow: 5px 5px 10px rgb(224, 224, 224);
-    animation: fade 1s;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 60%;
   }
-  
-  @keyframes fade {
-    form {
-      left: 50%;
-      opacity: 1;
-    }
-    to {
-      left: -20%;
-      opacity: 0;
-    }
+}
+
+@media (max-width: 576px) {
+  .card {
+    width: 80%;
   }
-  
-  .headCard {
-    color: var(--ColorText);
-    font-weight: 400;
-    padding: 40px 0;
-    font-size: 1.8rem;
-    text-align: center;
-  }
-  
-  .mainCard {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 20px 20px;
-    align-items: center;
-    height: 190px;
-  }
-  
-  .text {
-    color: #333;
-    font-weight: 500;
-    font-size: 1.3em;
-  }
-  
-  .buttonSubmit {
-    all: unset;
-    border: 1px solid var(--ColorText);
-    padding: 10px 30px;
-    border-radius: 10px;
-    color: var(--ColorText);
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .buttonSubmit:hover {
-    background: #ffe2db;
-    color: #f04823;
-  }
-  
-  .footerCard {
-    color: var(--ColorText);
-    font-weight: 400;
-    padding: 40px 0;
-    font-size: 1.3rem;
-    text-align: center;
-  }
-  
-  @media (max-width: 992px) {
-    .card {
-      width: 50%;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .card {
-      width: 60%;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .card {
-      width: 80%;
-    }
-  }
-  
+}
