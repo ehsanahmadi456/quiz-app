@@ -1,7 +1,6 @@
 body {
   background-color: #f9f9f9;
-  max-width: 1200px;
-  margin: 0 auto;
+  overflow-x: hidden;
 }
 
 .App {

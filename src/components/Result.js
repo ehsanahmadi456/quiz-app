@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 // Styles
 import styles from "./HomePage.module.css";
 
-const HomePage = () => {
+const Result = () => {
 
     const [animate, setAnimate] = useState(false);
     const navigate = useNavigate();
@@ -21,8 +21,8 @@ const HomePage = () => {
             <div className={animate ? styles.animationCard : styles.card}>
                 <p className={styles.headCard}>Quiz</p>
                 <div className={styles.mainCard}>
-                    <p className={styles.text}>Are you ready?</p>
-                    <button className={styles.buttonSubmit} onClick={clickHandler}>Yes</button>
+                    <span>Your Question finished</span>
+                    <p>{}/{}</p>
                 </div>
                 <p className={styles.footerCard}>Lets to start Quiz!</p>
             </div>
@@ -30,4 +30,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default Result;
